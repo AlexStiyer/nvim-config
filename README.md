@@ -13,7 +13,7 @@ Inspired heavily by [theprimeagain](https://www.youtube.com/watch?v=w7i4amO_zaE)
 
 ## Install:
 * [install packer](https://github.com/wbthomason/packer.nvim#quickstart)
-* cd ./lua/my_conf
-* nvim packer.lua
+* `cd ./lua/my_conf`
+* `nvim packer.lua`
 * source file `:so`
 * `:PackerSync`
