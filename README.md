@@ -12,7 +12,7 @@ Inspired heavily by [theprimeagain](https://www.youtube.com/watch?v=w7i4amO_zaE)
 * `rose-pine/neovim`: Pretty Color Theme that I'll change at somepoint
 
 ## Install:
-*apt-get ripgrep (required for telescope)
+* apt-get ripgrep (required for telescope)
 * [install packer](https://github.com/wbthomason/packer.nvim#quickstart)
 * `cd ./lua/my_conf`
 * `nvim packer.lua`
