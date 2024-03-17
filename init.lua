@@ -69,8 +69,7 @@ require('lazy').setup({
   'tpope/vim-sleuth',
 
   --THEMES
-  'folke/tokyonight.nvim',
-  'ishan9299/nvim-solarized-lua',
+  'morhetz/gruvbox',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -184,27 +183,6 @@ require('lazy').setup({
       end,
     },
   },
-
-  {
-    -- Window picker supported by NeoTree 
-    's1n7ax/nvim-window-picker',
-    name = 'window-picker',
-    event = 'VeryLazy',
-    version = '2.*',
-    config = function()
-        require'window-picker'.setup()
-    end,
-  },
-
-  {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -273,17 +251,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    }
-  }
+{ import = 'custom.plugins' },
 }, {})
 
 
@@ -434,7 +402,6 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>.', '<Cmd>Neotree toggle<CR>')
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
@@ -675,11 +642,10 @@ cmp.setup {
   },
 }
 
--- SET THEME
-vim.cmd('colorscheme tokyonight-day')
-
--- More custom keymaps
+-- Manual Custom Keymaps
+vim.keymap.set('n', '<leader>.', '<Cmd>Neotree toggle<CR>')
 vim.keymap.set('n', '<leader>jq', ':%!jq .<cr>', { desc = 'Run Jquery Format on The File'})
-vim.keymap.set('n', '<leader>', ':Neotree reveal<cr>', {desc = 'Reveal current file in NeoTree'})
--- The line beneath this is called `modeline`. See `:help modeline`
+vim.keymap.set('n', '<leader>,', ':Neotree reveal<cr>', {desc = 'Reveal current file in NeoTree'})
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
+-- The line bedneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
