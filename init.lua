@@ -68,6 +68,10 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+  --THEMES
+  'folke/tokyonight.nvim',
+  'ishan9299/nvim-solarized-lua',
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -179,6 +183,17 @@ require('lazy').setup({
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
       end,
     },
+  },
+
+  {
+    -- Window picker supported by NeoTree 
+    's1n7ax/nvim-window-picker',
+    name = 'window-picker',
+    event = 'VeryLazy',
+    version = '2.*',
+    config = function()
+        require'window-picker'.setup()
+    end,
   },
 
   {
@@ -660,5 +675,11 @@ cmp.setup {
   },
 }
 
+-- SET THEME
+vim.cmd('colorscheme tokyonight-day')
+
+-- More custom keymaps
+vim.keymap.set('n', '<leader>jq', ':%!jq .<cr>', { desc = 'Run Jquery Format on The File'})
+vim.keymap.set('n', '<leader>', ':Neotree reveal<cr>', {desc = 'Reveal current file in NeoTree'})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
