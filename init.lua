@@ -643,9 +643,9 @@ cmp.setup {
 }
 
 -- Manual Custom Keymaps
-vim.keymap.set('n', '<leader>.', '<Cmd>Neotree toggle<CR>')
-vim.keymap.set('n', '<leader>jq', ':%!jq .<cr>', { desc = 'Run Jquery Format on The File'})
-vim.keymap.set('n', '<leader>,', ':Neotree reveal<cr>', {desc = 'Reveal current file in NeoTree'})
+-- vim.keymap.set('n', '<leader>', ':%!jq .<cr>', { desc = 'Run Jquery Format on The File'})
+-- return to normal mode from terminal mode with esc
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
+
 -- The line bedneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
